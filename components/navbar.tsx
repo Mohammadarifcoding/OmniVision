@@ -37,12 +37,12 @@ export default function Navbar() {
   }, [mobileMenuOpen])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 py-4 md:py-6">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 py-4 md:py-6 ">
       <motion.nav
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`flex items-center justify-between w-full max-w-7xl rounded-full px-4 md:px-8 py-2 transition-all duration-300 ${
+        className={`flex items-center justify-between w-full max-w-7xl rounded-full px-4 md:px-8 py-2 border-2 border-white/10 transition-all duration-300  ${
           scrolled ? "bg-[#050505] backdrop-blur" : "bg-[#050505] backdrop-blur"
         }`}
       >
@@ -52,7 +52,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-xl md:text-2xl font-bold text-red-600"
+            className="text-xl md:text-2xl font-bold text-blue-600"
           >
             OmniVision
           </motion.span>
@@ -88,7 +88,7 @@ export default function Navbar() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
-          className="md:hidden relative z-20 text-red-600"
+          className="md:hidden relative z-20 text-blue-600"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -139,7 +139,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <Link href={href} className="text-gray-300 hover:text-white transition-colors duration-200 relative group">
       {children}
-      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
     </Link>
   )
 }
@@ -152,7 +152,7 @@ function MobileNavLink({ href, onClick, children }: { href: string; onClick: () 
       className="text-gray-300 hover:text-white transition-colors duration-200 text-xl relative group"
     >
       {children}
-      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
     </Link>
   )
 }

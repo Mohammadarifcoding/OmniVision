@@ -54,7 +54,7 @@ export default function SwiperCarousel({ videos }: SwiperCarouselProps) {
             clickable: true,
             renderBullet: (index, className) =>
               `<span class="${className} ${
-                index === activeVideoIndex ? "bg-red-600 w-6" : "bg-white/50"
+                index === activeVideoIndex ? "bg-blue-600 w-6" : "bg-white/50"
               } transition-all duration-300"></span>`,
           }}
           navigation={{
@@ -80,7 +80,7 @@ export default function SwiperCarousel({ videos }: SwiperCarouselProps) {
                 />
                 {/* Play button only visible on active slide */}
                 <div className="absolute inset-0 flex items-center justify-center play-button-container">
-                  <button className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                  <button className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
                     <Play className="w-8 h-8 fill-current" />
                   </button>
                 </div>

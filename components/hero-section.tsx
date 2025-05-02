@@ -39,9 +39,32 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="flex items-center justify-center gap-2 mb-8"
+          className="flex items-center justify-center gap-2 mb-8 border-white/10 bg-[#050505] backdrop-blur-2xl py-1 px-3 rounded-full transition-all duration-300 max-w-fit mx-auto border-2 border-t-[3px]"
         >
-          <span className="w-2 h-2 rounded-full bg-red-600"></span>
+         <div className="relative inline-flex w-[10px] h-[10px]">
+  {/* ping halo */}
+  <span
+    className="
+      absolute inset-0 
+      rounded-full 
+      bg-blue-600 
+      opacity-75 
+      animate-ping
+    "
+  ></span>
+  {/* solid dot */}
+  <span
+    className="
+      relative 
+      inline-flex 
+      w-full 
+      h-full 
+      rounded-full 
+      bg-blue-600
+    "
+  ></span>
+</div>
+
           <span className="text-gray-400 text-sm">Get your Editing Done</span>
         </motion.div>
 
@@ -50,7 +73,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="text-5xl md:text-7xl font-bold mb-4 text-red-600"
+          className="text-5xl md:text-7xl font-bold mb-4 text-blue-600"
         >
           Omni Vision
         </motion.h1>
@@ -70,7 +93,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.8 }}
-          className="text-3xl md:text-5xl font-bold mb-8 text-red-600"
+          className="text-3xl md:text-5xl font-bold mb-8 text-blue-600"
         >
           I&apos;m unmatched.
         </motion.h3>

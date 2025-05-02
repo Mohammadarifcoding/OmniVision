@@ -46,7 +46,7 @@ export function BackgroundGrid() {
       const dotSize = 0.35 // Smaller dots for exact match
 
       // Draw regular dots - using very light gray color with low opacity
-      ctx.fillStyle = "rgba(255, 255, 255, 0.1)" // Very subtle white dots
+      ctx.fillStyle = "rgba(255, 255, 255, 0.4)" // Very subtle white dots
 
       for (let x = 0; x <= window.innerWidth; x += spacing) {
         for (let y = 0; y <= window.innerHeight; y += spacing) {
