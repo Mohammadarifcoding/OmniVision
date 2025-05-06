@@ -98,7 +98,7 @@ export const AnimatedButton = React.forwardRef<
         <div
     className="
       absolute inset-0 rounded-xl
-      bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300
+      bg-gradient-to-r from-red-600 via-red-400 to-blue-300
       opacity-30 blur-lg
       transition-all duration-700
       group-hover:opacity-60

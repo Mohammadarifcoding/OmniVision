@@ -1,28 +1,31 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion, useScroll, useTransform, useSpring } from "framer-motion"
-import { AnimatedButton } from "@/components/ui/animated-button"
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { AnimatedButton } from "@/components/ui/animated-button";
 
 export default function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
-  })
+  });
 
   // Smoother animations with spring physics
   const smoothY = useSpring(useTransform(scrollYProgress, [0, 1], [0, 200]), {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001,
-  })
+  });
 
-  const smoothOpacity = useSpring(useTransform(scrollYProgress, [0, 0.5], [1, 0]), {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  })
+  const smoothOpacity = useSpring(
+    useTransform(scrollYProgress, [0, 0.5], [1, 0]),
+    {
+      stiffness: 100,
+      damping: 30,
+      restDelta: 0.001,
+    }
+  );
 
   return (
     <section
@@ -41,29 +44,29 @@ export default function HeroSection() {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="flex items-center justify-center gap-2 mb-8 border-white/10 bg-[#050505] backdrop-blur-2xl py-1 px-3 rounded-full transition-all duration-300 max-w-fit mx-auto border-2 border-t-[3px]"
         >
-         <div className="relative inline-flex w-[10px] h-[10px]">
-  {/* ping halo */}
-  <span
-    className="
+          <div className="relative inline-flex w-[10px] h-[10px]">
+            {/* ping halo */}
+            <span
+              className="
       absolute inset-0 
       rounded-full 
-      bg-blue-600 
+      bg-red-600 
       opacity-75 
       animate-ping
     "
-  ></span>
-  {/* solid dot */}
-  <span
-    className="
+            ></span>
+            {/* solid dot */}
+            <span
+              className="
       relative 
       inline-flex 
       w-full 
       h-full 
       rounded-full 
-      bg-blue-600
+      bg-red-600
     "
-  ></span>
-</div>
+            ></span>
+          </div>
 
           <span className="text-gray-400 text-sm">Get your Editing Done</span>
         </motion.div>
@@ -73,7 +76,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="text-5xl md:text-7xl font-bold mb-4 text-blue-600"
+          className="text-5xl md:text-7xl font-bold mb-4 text-red-600 "
         >
           Omni Vision
         </motion.h1>
@@ -93,7 +96,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.8 }}
-          className="text-3xl md:text-5xl font-bold mb-8 text-blue-600"
+          className="text-3xl md:text-5xl font-bold mb-8 text-red-600"
         >
           I&apos;m unmatched.
         </motion.h3>
@@ -121,5 +124,5 @@ export default function HeroSection() {
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }

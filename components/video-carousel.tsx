@@ -102,7 +102,7 @@ export default function VideoCarousel({ videos }: VideoCarouselProps) {
                 {isCenter && (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <motion.button
-                      className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white"
+                      className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-white"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -153,7 +153,7 @@ export default function VideoCarousel({ videos }: VideoCarouselProps) {
           <button
             key={index}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              currentIndex === index ? "bg-blue-600 w-6" : "bg-white/50"
+              currentIndex === index ? "bg-red-600 w-6" : "bg-white/50"
             }`}
             onClick={() => {
               if (isAnimating) return

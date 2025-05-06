@@ -50,7 +50,7 @@ body {
 
 /* Gradient text utility */
 .gradient-text {
-  @apply bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent;
 }
 
 /* Animation utilities */

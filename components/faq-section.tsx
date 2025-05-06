@@ -82,10 +82,10 @@ export default function FaqSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            Frequently Asked <span className="text-blue-600">Questions</span>
+            Frequently Asked <span className="text-red-600">Questions</span>
           </h2>
           <motion.div
-            className="w-24 h-1 bg-blue-600 mx-auto mt-4"
+            className="w-24 h-1 bg-red-600 mx-auto mt-4"
             initial={{ width: 0 }}
             animate={isInView ? { width: 96 } : { width: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}

@@ -41,7 +41,7 @@ export default function CTAFooter() {
         >
           {/* Brand name */}
           <motion.div variants={itemVariants} className="mb-6">
-            <span className="text-blue-600 font-medium">OmniVision</span>
+            <span className="text-red-600 font-medium">OmniVision</span>
           </motion.div>
 
           {/* Main heading */}

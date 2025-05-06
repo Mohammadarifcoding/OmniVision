@@ -170,10 +170,10 @@ export default function TestimonialSection() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">
             What Clients Say
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-red-400 to-red-600 mx-auto"></div>
         </motion.div>
 
         <div className="relative max-w-4xl mx-auto">
@@ -221,7 +221,7 @@ export default function TestimonialSection() {
 
           {/* Navigation buttons */}
           <motion.button
-            className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-900/50 border border-gray-700 flex items-center justify-center text-blue-400 hover:bg-blue-900/20 hover:border-blue-500 transition-all duration-300"
+            className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-900/50 border border-gray-700 flex items-center justify-center text-red-400 hover:bg-blue-900/20 hover:border-blue-500 transition-all duration-300"
             onClick={() => {
               prevTestimonial()
               handleUserInteraction()
@@ -234,7 +234,7 @@ export default function TestimonialSection() {
           </motion.button>
 
           <motion.button
-            className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-900/50 border border-gray-700 flex items-center justify-center text-blue-400 hover:bg-blue-900/20 hover:border-blue-500 transition-all duration-300"
+            className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-900/50 border border-gray-700 flex items-center justify-center text-red-400 hover:bg-blue-900/20 hover:border-blue-500 transition-all duration-300"
             onClick={() => {
               nextTestimonial()
               handleUserInteraction()

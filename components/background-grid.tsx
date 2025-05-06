@@ -12,41 +12,26 @@ export function BackgroundGrid() {
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    // Set up canvas for high DPI displays
     const setupCanvas = () => {
-      const devicePixelRatio = window.devicePixelRatio || 1
+      const dpr = window.devicePixelRatio || 1
+      const w = window.innerWidth
+      const h = window.innerHeight
 
-      // Set display size
-      const width = window.innerWidth
-      const height = window.innerHeight
-      canvas.style.width = `${width}px`
-      canvas.style.height = `${height}px`
+      canvas.style.width  = `${w}px`
+      canvas.style.height = `${h}px`
+      canvas.width  = w * dpr
+      canvas.height = h * dpr
 
-      // Set actual size in memory (scaled to account for extra pixel density)
-      canvas.width = width * devicePixelRatio
-      canvas.height = height * devicePixelRatio
-
-      // Normalize coordinate system to use CSS pixels
-      ctx.scale(devicePixelRatio, devicePixelRatio)
-    }
-
-    const resizeCanvas = () => {
-      setupCanvas()
-      drawDots()
+      ctx.scale(dpr, dpr)
     }
 
     const drawDots = () => {
-      if (!ctx || !canvas) return
-
-      // Clear canvas
+      if (!ctx) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      // Set dot properties - exact match to ApexVision
-      const spacing = 12 // Smaller spacing for denser grid
-      const dotSize = 0.35 // Smaller dots for exact match
-
-      // Draw regular dots - using very light gray color with low opacity
-      ctx.fillStyle = "rgba(255, 255, 255, 0.4)" // Very subtle white dots
+      const spacing = 12
+      const dotSize = 0.35
+      ctx.fillStyle = "rgba(255,255,255,0.4)"
 
       for (let x = 0; x <= window.innerWidth; x += spacing) {
         for (let y = 0; y <= window.innerHeight; y += spacing) {
@@ -57,18 +42,37 @@ export function BackgroundGrid() {
       }
     }
 
-    window.addEventListener("resize", resizeCanvas)
-    resizeCanvas()
-
-    return () => {
-      window.removeEventListener("resize", resizeCanvas)
+    const resize = () => {
+      setupCanvas()
+      drawDots()
     }
+
+    window.addEventListener("resize", resize)
+    resize()
+    return () => window.removeEventListener("resize", resize)
   }, [])
 
   return (
     <div className="fixed inset-0 z-0">
-      <canvas ref={canvasRef} className="absolute inset-0" style={{ pointerEvents: "none" }} />
-      <div className="absolute inset-0 bg-black" style={{ zIndex: -1 }} />
+      {/* Canvas dotted grid */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 pointer-events-none"
+      />
+
+      {/* Uiverse gradient‐radial overlay */}
+      <div className="absolute inset-0">
+        <div className="relative h-full w-full bg-[#000000]">
+          <div
+            className="
+              absolute inset-0
+              bg-[radial-gradient(#2563EB_1px,transparent_1px)]
+              [background-size:13px_13px]
+              [mask-image:radial-gradient(ellipse_35%_45%_at_47%_49%,#000_0%,transparent_130%)]
+            "
+          />
+        </div>
+      </div>
     </div>
   )
 }

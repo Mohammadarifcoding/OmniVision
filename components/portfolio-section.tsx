@@ -82,7 +82,7 @@ export default function PortfolioSection() {
           variants={titleVariants}
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-8">
-            Some Of My <span className="text-blue-600">Best Edited</span> Videos
+            Some Of My <span className="text-red-600">Best Edited</span> Videos
           </h2>
         </motion.div>
 
