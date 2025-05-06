@@ -99,46 +99,51 @@ export default function FaqSection() {
           className="max-w-3xl mx-auto"
         >
           {faqs.map((faq, index) => (
-            <motion.div key={faq.id} variants={itemVariants} custom={index} className="mb-6">
+            <motion.div
+              key={faq.id}
+              variants={itemVariants}
+              custom={index}
+              className="mb-8"
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            >
               <motion.div
-                className={`border border-gray-800 rounded-lg overflow-hidden ${
-                  activeIndex === index ? "bg-gray-900/50" : "bg-black/50"
+                className={`rounded-2xl overflow-hidden shadow-md transition-colors duration-200 ${
+                  activeIndex === index ? "bg-gray-800" : "bg-gray-900"
                 }`}
-                whileHover={
-                  activeIndex !== index
-                    ? {
-                        backgroundColor: "rgba(30, 41, 59, 0.5)",
-                        transition: { duration: 0.2 },
-                      }
-                    : {}
-                }
               >
-                <motion.button
+                <button
                   onClick={() => toggleFaq(index)}
-                  className="flex justify-between items-center w-full text-left p-6 focus:outline-none"
-                  whileTap={{ scale: 0.99 }}
+                  className="flex justify-between items-center w-full text-left px-8 py-4 focus:outline-none focus:ring-2 focus:ring-red-500 cursor-pointer"
+                  aria-expanded={activeIndex === index}
+                  aria-controls={`faq-answer-${faq.id}`}
                 >
                   <span className="text-lg font-medium text-white">{faq.question}</span>
                   <motion.div
-                    animate={{
-                      rotate: activeIndex === index ? 180 : 0,
-                    }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-800/50 text-red-500"
+                    className={`flex items-center justify-center w-8 h-8 rounded-full ${
+                      activeIndex === index ? "bg-red-500" : "bg-gray-700"
+                    } text-white`}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    {activeIndex === index ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                    <motion.div
+                      animate={{ rotate: activeIndex === index ? 180 : 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      {activeIndex === index ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                    </motion.div>
                   </motion.div>
-                </motion.button>
+                </button>
 
                 <AnimatePresence>
                   {activeIndex === index && (
                     <motion.div
+                      id={`faq-answer-${faq.id}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{
                         height: "auto",
                         opacity: 1,
                         transition: {
-                          height: { duration: 0.3 },
+                          height: { duration: 0.4 },
                           opacity: { duration: 0.3, delay: 0.1 },
                         },
                       }}
@@ -146,14 +151,14 @@ export default function FaqSection() {
                         height: 0,
                         opacity: 0,
                         transition: {
-                          height: { duration: 0.3 },
+                          height: { duration: 0.4 },
                           opacity: { duration: 0.2 },
                         },
                       }}
                       className="overflow-hidden"
                     >
-                      <div className="p-6 pt-0 border-t border-gray-800">
-                        <p className="text-gray-400">{faq.answer}</p>
+                      <div className="px-8 py-4 border-t border-gray-700">
+                        <p className="text-gray-200 leading-relaxed">{faq.answer}</p>
                       </div>
                     </motion.div>
                   )}

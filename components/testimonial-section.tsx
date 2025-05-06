@@ -9,30 +9,30 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 const testimonials = [
   {
     id: 1,
-    name: "Alex Johnson",
-    role: "Marketing Director",
-    company: "CreativeMinds",
-    avatar: "/placeholder.svg?height=100&width=100",
+    name: "LilyGumdrop",
+    role: "Content Creator",
+    company: "LilyGumdrop",
+    avatar: "https://res.cloudinary.com/dnjlwwcmo/image/upload/v1746549963/LilyGumdrop_high_ynlbe9.jpg",
     content:
-      "OmniVision transformed our brand videos completely. The attention to detail and creative approach brought our vision to life in ways we couldn't imagine. Truly exceptional work that elevated our entire campaign.",
+      "I was so worried our video would look boring, but Jisan from OmniVision turned it into something amazing! He really got what we wanted, and watching it felt like a happy memory. I can’t thank him enough!",
     rating: 5,
   },
   {
     id: 2,
-    name: "Sarah Williams",
+    name: "Graser",
     role: "Content Creator",
-    company: "Influencer",
-    avatar: "/placeholder.svg?height=100&width=100",
+    company: "Graser",
+    avatar: "https://res.cloudinary.com/dnjlwwcmo/image/upload/v1746549972/Graser_high_ax0dhe.jpg",
     content:
-      "Working with OmniVision has been game-changing for my channel. The edits are clean, professional, and delivered exactly when promised. My engagement has increased 40% since we started working together.",
+      "Jisan at OmniVision made our event video feel so special. It’s like he caught all the fun moments, and every time I watch it, I feel like I’m back there laughing again super cool!",
     rating: 5,
   },
   {
     id: 3,
-    name: "Michael Chen",
+    name: "Amin",
     role: "CEO",
-    company: "TechStart Inc.",
-    avatar: "/placeholder.svg?height=100&width=100",
+    company: "AminOnPC",
+    avatar: "https://res.cloudinary.com/dnjlwwcmo/image/upload/v1746549955/AminOnPC_high_wlf3j5.jpg",
     content:
       "Our product launch video needed to be perfect, and OmniVision delivered beyond expectations. The storytelling through visuals was impressive, and the turnaround time was faster than we anticipated.",
     rating: 5,
@@ -122,11 +122,11 @@ export default function TestimonialSection() {
   // Star rating component
   const StarRating = ({ rating }: { rating: number }) => {
     return (
-      <div className="flex space-x-1">
+      <div className="flex space-x-1 justify-center items-center">
         {[...Array(5)].map((_, i) => (
           <svg
             key={i}
-            className={`w-5 h-5 ${i < rating ? "text-blue-500 fill-blue-500" : "text-gray-400"}`}
+            className={`w-5 h-5 ${i < rating ? "text-red-500 fill-red-500" : "text-gray-400"}`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -143,7 +143,7 @@ export default function TestimonialSection() {
       {testimonials.map((_, index) => (
         <motion.button
           key={index}
-          className={`w-3 h-3 rounded-full ${currentIndex === index ? "bg-blue-500" : "bg-gray-600"}`}
+          className={`w-3 h-3 rounded-full ${currentIndex === index ? "bg-red-500" : "bg-gray-600"}`}
           onClick={() => {
             if (isAnimating) return
             handleUserInteraction()
@@ -190,13 +190,13 @@ export default function TestimonialSection() {
               >
                 <div className="bg-gray-900/30 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-xl border border-gray-800">
                   <div className="flex flex-col items-center text-center">
-                    <Quote className="w-12 h-12 text-blue-500 mb-6 opacity-50" />
+                    <Quote className="w-12 h-12 text-red-500 mb-6 opacity-50" />
 
                     <p className="text-lg md:text-xl text-gray-200 mb-8 italic">
                       "{testimonials[currentIndex].content}"
                     </p>
 
-                    <Avatar className="w-16 h-16 border-2 border-blue-500">
+                    <Avatar className="w-16 h-16 border-2 border-red-500">
                       <AvatarImage
                         src={testimonials[currentIndex].avatar || "/placeholder.svg"}
                         alt={testimonials[currentIndex].name}
@@ -221,7 +221,7 @@ export default function TestimonialSection() {
 
           {/* Navigation buttons */}
           <motion.button
-            className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-900/50 border border-gray-700 flex items-center justify-center text-red-400 hover:bg-blue-900/20 hover:border-blue-500 transition-all duration-300"
+            className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-900/50 border border-gray-700 flex items-center justify-center text-red-400 hover:bg-red-900/20 hover:border-red-500 transition-all duration-300"
             onClick={() => {
               prevTestimonial()
               handleUserInteraction()
@@ -234,7 +234,7 @@ export default function TestimonialSection() {
           </motion.button>
 
           <motion.button
-            className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-900/50 border border-gray-700 flex items-center justify-center text-red-400 hover:bg-blue-900/20 hover:border-blue-500 transition-all duration-300"
+            className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-900/50 border border-gray-700 flex items-center justify-center text-red-400 hover:bg-red-900/20 hover:border-red-500 transition-all duration-300"
             onClick={() => {
               nextTestimonial()
               handleUserInteraction()
