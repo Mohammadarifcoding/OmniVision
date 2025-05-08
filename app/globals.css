@@ -50,7 +50,7 @@ body {
 
 /* Gradient text utility */
 .gradient-text {
-  @apply bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent;
 }
 
 /* Animation utilities */
@@ -68,6 +68,34 @@ body {
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Video marquee styles */
+.marquee-container {
+  overflow: hidden !important;
+}
+
+.marquee {
+  min-width: 100%;
+}
+
+/* Hover effect for video cards */
+.video-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Play button animation */
+.play-button {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.play-button:hover {
+  transform: scale(1.1);
 }
 
 /* Swiper custom styles */
